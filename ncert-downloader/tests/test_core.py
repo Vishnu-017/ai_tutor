@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from pypdf import PdfReader
 
-from main import download_book, iter_books, merge_book
+from ncert_book_downloader_main import download_book, iter_books, merge_book
 from tests.conftest import make_pdf_bytes, make_zip
 
 

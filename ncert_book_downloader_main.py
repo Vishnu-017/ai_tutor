@@ -273,13 +273,13 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""\
 examples:
-    uv run ../main.py                        interactive mode (default)
-    uv run ../main.py --class 10             all Class 10 books, no prompts
-    uv run ../main.py --class 10 --subject Mathematics
-    uv run ../main.py --list                 browse the full catalog
-    uv run ../main.py --download-only        download zips, skip merging
-    uv run ../main.py --merge-only           merge existing zips, skip downloading
-    uv run ../main.py --keep-zips            keep zip files after merging
+    uv run ../ncert_book_downloader_main.py                        interactive mode (default)
+    uv run ../ncert_book_downloader_main.py --class 10             all Class 10 books, no prompts
+    uv run ../ncert_book_downloader_main.py --class 10 --subject Mathematics
+    uv run ../ncert_book_downloader_main.py --list                 browse the full catalog
+    uv run ../ncert_book_downloader_main.py --download-only        download zips, skip merging
+    uv run ../ncert_book_downloader_main.py --merge-only           merge existing zips, skip downloading
+    uv run ../ncert_book_downloader_main.py --keep-zips            keep zip files after merging
 """,
     )
     parser.add_argument("--class", dest="cls", metavar="N", help="filter by class number")
