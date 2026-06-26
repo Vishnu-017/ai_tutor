@@ -1,8 +1,16 @@
 import io
+import sys
 import zipfile
+from pathlib import Path
 
 import pytest
 from pypdf import PdfWriter
+
+
+# Ensure tests can import the root-level main.py module.
+ROOT_DIR = Path(__file__).resolve().parents[2]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+
+# Python environments and cache
+**/.venv/
+**/venv/
+__pycache__/
+
+# Environment files (global)
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+**/.envrc
+**/.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated/downloaded artifacts (global)
+**/downloads/
+
+# Documents/archives
+*.pdf
+*.zip

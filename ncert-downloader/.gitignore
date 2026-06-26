@@ -1,6 +1,0 @@
-*.zip
-*.pdf
-venv
-downloads
-.venv
-__pycache__

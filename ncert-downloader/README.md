@@ -20,7 +20,7 @@ Download free NCERT textbooks as merged PDFs, organised by class and subject. NC
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run:
 
 ```sh
-uv run main.py
+uv run ../main.py
 ```
 
 `uv` installs all dependencies automatically on first run. The script will guide you through picking a class, subject, and which books to download.
@@ -31,7 +31,7 @@ If you already have Python 3.10+ installed:
 
 ```sh
 pip install pypdf questionary requests rich
-python main.py
+python ../main.py
 ```
 
 ---
@@ -44,7 +44,7 @@ When you run the script without any flags, it walks you through three steps:
 2. **Pick a subject** — filtered to what's available for that class
 3. **Pick books** — download everything, or select specific titles with the spacebar
 
-Books are saved to `downloads/Class <N>/<Subject>/<Title>.pdf`.
+Books are saved to `ncert-downloader/downloads/Class <N>/<Subject>/<Title>.pdf` by default.
 
 ---
 
@@ -53,14 +53,14 @@ Books are saved to `downloads/Class <N>/<Subject>/<Title>.pdf`.
 Pass flags to skip the prompts entirely — useful for scripting or automation:
 
 ```sh
-uv run main.py --class 10                        # all Class 10 books
-uv run main.py --class 10 --subject Mathematics  # specific class + subject
-uv run main.py --list                            # browse the full catalog without downloading
-uv run main.py --download-only                   # download zip files, skip PDF merging
-uv run main.py --merge-only                      # merge already-downloaded zips into PDFs
-uv run main.py --keep-zips                       # keep zip files after merging
-uv run main.py --out ./books                     # save to a custom directory
-uv run main.py --concurrency 5                   # limit parallel downloads
+uv run ../main.py --class 10                        # all Class 10 books
+uv run ../main.py --class 10 --subject Mathematics  # specific class + subject
+uv run ../main.py --list                            # browse the full catalog without downloading
+uv run ../main.py --download-only                   # download zip files, skip PDF merging
+uv run ../main.py --merge-only                      # merge already-downloaded zips into PDFs
+uv run ../main.py --keep-zips                       # keep zip files after merging
+uv run ../main.py --out ./books                     # save to a custom directory
+uv run ../main.py --concurrency 5                   # limit parallel downloads
 ```
 
 Re-running is always safe — files already downloaded or merged are skipped automatically.
@@ -81,7 +81,7 @@ uv run generate_data.py
 
 ```sh
 uv sync --group dev   # install dependencies including dev tools
-uv run main.py        # run the script
+uv run ../main.py     # run the script
 ```
 
 ### Running tests

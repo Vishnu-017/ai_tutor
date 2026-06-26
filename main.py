@@ -18,7 +18,8 @@ from rich.table import Table
 console = Console()
 
 BASE_URL = "https://ncert.nic.in/textbook/pdf/"
-DATA_FILE = Path(__file__).parent / "data.json"
+PROJECT_DIR = Path(__file__).parent / "ncert-downloader"
+DATA_FILE = PROJECT_DIR / "data.json"
 
 # Consistent prompt style: cyan highlight, no reverse-video white overlay
 STYLE = questionary.Style([
@@ -272,13 +273,13 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""\
 examples:
-  uv run main.py                        interactive mode (default)
-  uv run main.py --class 10             all Class 10 books, no prompts
-  uv run main.py --class 10 --subject Mathematics
-  uv run main.py --list                 browse the full catalog
-  uv run main.py --download-only        download zips, skip merging
-  uv run main.py --merge-only           merge existing zips, skip downloading
-  uv run main.py --keep-zips            keep zip files after merging
+    uv run ../main.py                        interactive mode (default)
+    uv run ../main.py --class 10             all Class 10 books, no prompts
+    uv run ../main.py --class 10 --subject Mathematics
+    uv run ../main.py --list                 browse the full catalog
+    uv run ../main.py --download-only        download zips, skip merging
+    uv run ../main.py --merge-only           merge existing zips, skip downloading
+    uv run ../main.py --keep-zips            keep zip files after merging
 """,
     )
     parser.add_argument("--class", dest="cls", metavar="N", help="filter by class number")
@@ -287,11 +288,16 @@ examples:
     parser.add_argument("--download-only", action="store_true", help="skip PDF merging")
     parser.add_argument("--merge-only", action="store_true", help="skip downloading")
     parser.add_argument("--keep-zips", action="store_true", help="keep zip files after merging")
-    parser.add_argument("--out", default="downloads", metavar="DIR", help="output directory (default: downloads)")
+    parser.add_argument(
+        "--out",
+        default=None,
+        metavar="DIR",
+        help="output directory (default: ncert-downloader/downloads)",
+    )
     parser.add_argument("--concurrency", type=int, default=20, metavar="N", help="parallel downloads (default: 20)")
     args = parser.parse_args()
 
-    out_dir = Path(args.out)
+    out_dir = Path(args.out) if args.out else (PROJECT_DIR / "downloads")
     data = load_data()
 
     console.print("\n[bold cyan]NCERT Books Downloader[/bold cyan]\n")
